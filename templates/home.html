@@ -12,18 +12,58 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-md-6">
         <div class="card text-white">
             <div class="card-body">
                 <h5 class="card-title">Quick Stats</h5>
-                <p class="card-text">
-                    <ul>
-                        <li>Server: Raspberry Pi 2</li>
-                        <li>Framework: Flask</li>
-                        <li>Projects: Coming Soon</li>
-                    </ul>
-                </p>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <i class="fas fa-server"></i>
+                        <strong>Hostname:</strong>
+                        <span>{{ system_stats.hostname }}</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <i class="fas fa-microchip"></i>
+                        <strong>Platform:</strong>
+                        <span>{{ system_stats.platform }}</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <i class="fas fa-cogs"></i>
+                        <strong>Architecture:</strong>
+                        <span>{{ system_stats.architecture }}</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <i class="fas fa-temperature-high"></i>
+                        <strong>CPU Temperature:</strong>
+                        <span>{{ system_stats.cpu_temp }}</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <strong>CPU Usage:</strong>
+                        <div class="progress" style="margin-left: 10px;">
+                            <div class="progress-bar" role="progressbar" 
+                                 style="width: {{ system_stats.cpu_usage[:-1] }}%">
+                            </div>
+                            <div class="progress-text">{{ system_stats.cpu_usage }}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <i class="fas fa-memory"></i>
+                        <strong>Memory:</strong>
+                        <div class="progress" style="margin-left: 10px;">
+                            <div class="progress-bar" role="progressbar" 
+                                 style="width: {{ system_stats.memory_percent[:-1] }}%">
+                            </div>
+                            <div class="progress-text">{{ system_stats.memory_used }} / {{ system_stats.memory_total }}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
