@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from apps.iss_guide.routes import iss_bp
+from apps.system_monitor import get_system_stats
 
 app = Flask(__name__)
 
@@ -8,7 +9,8 @@ app.register_blueprint(iss_bp)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    system_stats = get_system_stats()
+    return render_template('home.html', system_stats=system_stats)
 
 @app.route('/apps')
 def apps():
