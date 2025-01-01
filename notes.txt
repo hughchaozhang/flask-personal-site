@@ -1,0 +1,5 @@
+192.168.68.145
+
+#create and activate virual env
+python3 -m venv venv
+source venv/bin/activate

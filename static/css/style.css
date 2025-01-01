@@ -1,0 +1,54 @@
+
+
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    background-color: #2d2d2d;
+    border: 1px solid #404040;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    background-color: #202020 !important;
+}
+
+.card-title {
+    color: #ffffff;
+}
+
+.card-text {
+    color: #e0e0e0;
+}
+
+.lead {
+    color: #e0e0e0;
+}
+
+/* Style for lists inside cards */
+.card ul {
+    color: #e0e0e0;
+}
+
+/* Style for links */
+a {
+    color: #66b3ff;
+}
+
+a:hover {
+    color: #99ccff;
+}
+
+/* Navigation link colors */
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,0.8);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffffff;
+}

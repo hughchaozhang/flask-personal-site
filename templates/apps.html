@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>My Applications</h1>
+        <p class="lead">Here are all the web applications I've built:</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-white">
+            <div class="card-body">
+                <h5 class="card-title">ISS Viewing Guide</h5>
+                <p class="card-text">Find out when the International Space Station will be visible from your location. Get real-time tracking and viewing times.</p>
+                <a href="{{ url_for('iss_guide.index') }}" class="btn btn-primary">Launch App</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Template for future apps -->
+    <div class="col-md-4">
+        <div class="card text-white">
+            <div class="card-body">
+                <h5 class="card-title">Coming Soon</h5>
+                <p class="card-text">New applications will be added here.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

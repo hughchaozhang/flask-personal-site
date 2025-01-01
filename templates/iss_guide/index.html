@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card text-white">
+    <div class="card-body">
+        <h2 class="card-title">ISS Viewing Guide</h2>
+        
+        <form method="POST" class="mb-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control bg-dark text-white" id="city" name="city" placeholder="Enter city">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="state">State (optional)</label>
+                        <input type="text" class="form-control bg-dark text-white" id="state" name="state" placeholder="Enter state">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" class="form-control bg-dark text-white" id="country" name="country" value="USA">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Get ISS Passes</button>
+        </form>
+
+        {% if current_location %}
+        <div class="card bg-dark mb-4">
+            <div class="card-body">
+                <h4>Selected Location</h4>
+                <p>{{ current_location }}</p>
+                <p>Coordinates: {{ latitude }}, {{ longitude }}</p>
+                <p>Timezone: {{ timezone }}</p>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if iss_position %}
+        <div class="card bg-dark mb-4">
+            <div class="card-body">
+                <h4>Current ISS Position</h4>
+                <p>Latitude: {{ iss_position.latitude }}°</p>
+                <p>Longitude: {{ iss_position.longitude }}°</p>
+                <p>Altitude: {{ iss_position.altitude }} km</p>
+                <p>{{ iss_position.location_info }}</p>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if passes %}
+        <h3 class="mt-4">Upcoming Visible Passes</h3>
+        {% for pass in passes %}
+        <div class="card bg-dark mb-3">
+            <div class="card-body">
+                <h5>Pass {{ loop.index }}</h5>
+                <pre class="text-white">{{ pass.formatted_info }}</pre>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
